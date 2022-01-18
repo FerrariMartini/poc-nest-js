@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UserCreate } from '../../../services/UserCreate';
 import { UserShow } from '../../../services/UserShow';
 import { User } from '../../../infra/typeorm/entities/User';
@@ -11,12 +11,17 @@ export class UserController {
   ) {}
 
   @Post('create')
-  createUser(@Body() newUserRequest: User): User[] {
+  createUser(@Body() newUserRequest: User): User {
     return this.userCreate.createNewUser(newUserRequest);
   }
 
   @Get('show-all')
-  getUsers(): any[] {
+  getUsers(): User[] {
     return this.userShow.getAllUsers();
+  }
+
+  @Get(':id')
+  getUserById(@Param() params: { id: string }): User {
+    return this.userShow.getById(params.id);
   }
 }
