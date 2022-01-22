@@ -4,6 +4,14 @@ export class User {
   id: string;
 
   @IsNotEmpty({
+    message: 'Tax Id is required.',
+  })
+  @IsString({
+    message: 'Tax Id must be a string.',
+  })
+  taxId: string;
+
+  @IsNotEmpty({
     message: 'First name is required.',
   })
   @IsString({

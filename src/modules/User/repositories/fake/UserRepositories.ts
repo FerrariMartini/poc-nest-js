@@ -4,6 +4,7 @@ import { User } from '../../infra/typeorm/entities/User';
 const _db = [
   {
     id: '9978c157-219c-429c-ab4e-24576a7eb318',
+    taxId: '206.719.970-68',
     firstName: 'Amora',
     lastName: 'Mala',
     email: 'am@gmail.com',

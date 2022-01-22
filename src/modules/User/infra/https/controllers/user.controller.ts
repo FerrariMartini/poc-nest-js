@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UserCreate } from '../../../services/UserCreate';
 import { UserShow } from '../../../services/UserShow';
-import { User } from '../../../infra/typeorm/entities/User';
+import { User } from '../../typeorm/entities/User';
 
 @Controller('users')
 export class UserController {
