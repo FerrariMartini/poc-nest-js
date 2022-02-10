@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
-import { IsTaxIdUnique } from '../../../util/CustomUserValidation/IsTaxIdUnique.validator';
+import { IsTaxIdUnique } from '../../../util/CustomUserValidation/IsUniqueTaxIdConstraint';
 
 export class User {
   id: string;
