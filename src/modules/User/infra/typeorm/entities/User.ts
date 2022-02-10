@@ -1,8 +1,13 @@
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
+import { IsTaxIdUnique } from '../../../util/CustomUserValidation/IsTaxIdUnique.validator';
 
 export class User {
   id: string;
 
+  @IsTaxIdUnique({
+    message:
+      'This data has already used. You should try to recover your user and password',
+  })
   @IsNotEmpty({
     message: 'Tax Id is required.',
   })

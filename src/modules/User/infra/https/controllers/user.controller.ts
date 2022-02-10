@@ -1,27 +1,24 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { UserCreate } from '../../../services/UserCreate';
-import { UserShow } from '../../../services/UserShow';
+import { UserService } from '../../../services/UserService';
+
 import { User } from '../../typeorm/entities/User';
 
 @Controller('users')
 export class UserController {
-  constructor(
-    private readonly userCreate: UserCreate,
-    private readonly userShow: UserShow,
-  ) {}
+  constructor(private readonly userService: UserService) {}
 
   @Post('create')
   createUser(@Body() newUserRequest: User): User {
-    return this.userCreate.createNewUser(newUserRequest);
+    return this.userService.createNewUser(newUserRequest);
   }
 
   @Get('show-all')
   getUsers(): User[] {
-    return this.userShow.getAllUsers();
+    return this.userService.getAllUsers();
   }
 
   @Get(':id')
   getUserById(@Param() params: { id: string }): User {
-    return this.userShow.getById(params.id);
+    return this.userService.getById(params.id);
   }
 }

@@ -33,4 +33,8 @@ const getUserById = (id: string): User => {
   return _db.find((user) => user.id === id);
 };
 
-export { saveUser, getAllUsers, getUserById };
+const getUserByTaxId = (taxId: string): User => {
+  return _db.find((user) => user.taxId === taxId);
+};
+
+export { saveUser, getAllUsers, getUserById, getUserByTaxId };
