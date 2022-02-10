@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
 import { IsTaxIdUnique } from '../../../util/CustomUserValidation/IsUniqueTaxIdConstraint';
 
@@ -37,6 +38,7 @@ export class User {
   )
   email: string;
 
+  @Exclude({ toPlainOnly: true })
   @IsNotEmpty({
     message: 'Password is required.',
   })
